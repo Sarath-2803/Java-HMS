@@ -1,10 +1,9 @@
 package com.hotel.hotelmanagement.controller;
 
 import com.hotel.hotelmanagement.dto.UserRequestDto;
-import com.hotel.hotelmanagement.dto.UserResponseDto;
+import com.hotel.hotelmanagement.dto.ResponseDto;
 import com.hotel.hotelmanagement.model.User;
 import com.hotel.hotelmanagement.service.UserService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,35 +20,35 @@ public class UserController {
 
     //get all users
     @GetMapping
-    public ResponseEntity<UserResponseDto> getAllUsers(){
+    public ResponseEntity<ResponseDto> getAllUsers(){
          List<User> users= userService.getUsers();
-         UserResponseDto response = new UserResponseDto(200,users);
+         ResponseDto response = new ResponseDto(200,users);
          return ResponseEntity.ok(response);
     }
 
     //get user by id
     @GetMapping("/{userid}")
-    public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long userid){
+    public ResponseEntity<ResponseDto> getUserById(@PathVariable Long userid){
         User existingUser = userService.getById(userid);
-        UserResponseDto response = new UserResponseDto(200,existingUser);
+        ResponseDto response = new ResponseDto(200,existingUser);
         return ResponseEntity.ok(response);
     }
 
     //get loyalty points by id
     @GetMapping("/{userid}/loyalty")
-    public ResponseEntity<UserResponseDto> getUserLoyalty(@PathVariable Long userid){
+    public ResponseEntity<ResponseDto> getUserLoyalty(@PathVariable Long userid){
         Integer loyalty = userService.getLoyalty(userid);
-        UserResponseDto response = new UserResponseDto(200,loyalty);
+        ResponseDto response = new ResponseDto(200,loyalty);
         return ResponseEntity.ok(response);
 
     }
 
     //create new user
     @PostMapping()
-    public ResponseEntity<UserResponseDto> createUser(@RequestBody UserRequestDto dto){
+    public ResponseEntity<ResponseDto> createUser(@RequestBody UserRequestDto dto){
         User user= new User(dto.getUsername(), dto.getEmail(), dto.getPhone(),dto.getType());
         User newUser = userService.saveUser(user);
-        UserResponseDto response = new UserResponseDto(201,newUser);
+        ResponseDto response = new ResponseDto(201,newUser);
         return ResponseEntity.ok(response);
     }
 
@@ -61,17 +60,17 @@ public class UserController {
 
     //update loyalty
     @PutMapping("/{userid}/loyalty")
-    public ResponseEntity<UserResponseDto> updateLoyalty(@PathVariable Long userid,@RequestParam Integer loyalty){
+    public ResponseEntity<ResponseDto> updateLoyalty(@PathVariable Long userid, @RequestParam Integer loyalty){
         User user =  userService.updateLoyalty(userid,loyalty);
-        UserResponseDto response = new UserResponseDto(200,user);
+        ResponseDto response = new ResponseDto(200,user);
         return ResponseEntity.ok(response);
     }
 
     //delete user by id
     @DeleteMapping("/{userid}")
-    public ResponseEntity<UserResponseDto> deleteUser(@PathVariable Long userid){
+    public ResponseEntity<ResponseDto> deleteUser(@PathVariable Long userid){
         userService.deleteUser(userid);
-        UserResponseDto response = new UserResponseDto(204,"User deleted");
+        ResponseDto response = new ResponseDto(204,"User deleted");
         return ResponseEntity.ok(response);
     }
 }

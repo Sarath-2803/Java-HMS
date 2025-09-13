@@ -1,11 +1,11 @@
 package com.hotel.hotelmanagement.dto;
 
-public class UserResponseDto {
+public class ResponseDto {
     private int status;
     private Object body;
 
     //constructors
-    public UserResponseDto(int status,Object body){
+    public ResponseDto(int status, Object body){
         this.status=status;
         this.body=body;
     }

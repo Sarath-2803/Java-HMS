@@ -19,4 +19,10 @@ public class GlobalExceptionHandler {
         ErrorResponseDto response = new ErrorResponseDto(HttpStatus.CONFLICT.value(), ex.getMessage());
         return new ResponseEntity<>(response,HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ErrorResponseDto> handleNotFound(NotFoundException ex){
+        ErrorResponseDto response = new ErrorResponseDto(HttpStatus.NOT_FOUND.value(),ex.getMessage());
+        return new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
+    }
 }

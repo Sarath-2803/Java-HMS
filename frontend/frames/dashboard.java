@@ -64,48 +64,48 @@ public class dashboard {
     btn4.setBackground(new Color(255, 0, 0));
     btn4.setFocusPainted(false);
 
-    JPanel topbar = new JPanel();
-    topbar.setBounds(200, 100, 800, 150);
-    topbar.setBackground(Color.LIGHT_GRAY);
-    frame.add(topbar);
-    topbar.setLayout(null);
+    // JPanel topbar = new JPanel();
+    // topbar.setBounds(200, 100, 800, 150);
+    // topbar.setBackground(Color.LIGHT_GRAY);
+    // frame.add(topbar);
+    // topbar.setLayout(null);
 
-    JPanel RoomsPanel = new JPanel();
-    RoomsPanel.setBounds(20, 20, 200, 100);
-    RoomsPanel.setBackground(new Color(153, 255, 255));
-    topbar.add(RoomsPanel);
+    // JPanel RoomsPanel = new JPanel();
+    // RoomsPanel.setBounds(20, 20, 200, 100);
+    // RoomsPanel.setBackground(new Color(153, 255, 255));
+    // topbar.add(RoomsPanel);
    
-    RoomsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-    JLabel totalRoomsLabel = new JLabel("Total Rooms: 50");
-    totalRoomsLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-    totalRoomsLabel.setBounds(30, 30, 200, 30);
+    // RoomsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    // JLabel totalRoomsLabel = new JLabel("Total Rooms: 50");
+    // totalRoomsLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+    // totalRoomsLabel.setBounds(30, 30, 200, 30);
    
-    RoomsPanel.add(totalRoomsLabel);
-    RoomsPanel.setLayout(null);
+    // RoomsPanel.add(totalRoomsLabel);
+    // RoomsPanel.setLayout(null);
 
-    JPanel TotalGuestsPanel = new JPanel();
-    TotalGuestsPanel.setBounds(285, 20, 200, 100);
-    topbar.add(TotalGuestsPanel);
-    TotalGuestsPanel.setBackground(new Color(142, 0, 213));
-    TotalGuestsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    // JPanel TotalGuestsPanel = new JPanel();
+    // TotalGuestsPanel.setBounds(285, 20, 200, 100);
+    // topbar.add(TotalGuestsPanel);
+    // TotalGuestsPanel.setBackground(new Color(142, 0, 213));
+    // TotalGuestsPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-    JLabel totalGuestsLabel = new JLabel("Current Guests: 39");
-    totalGuestsLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-    TotalGuestsPanel.add(totalGuestsLabel);
-    totalGuestsLabel.setBounds(30, 30, 200, 30);
-    TotalGuestsPanel.setLayout(null);
+    // JLabel totalGuestsLabel = new JLabel("Current Guests: 39");
+    // totalGuestsLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+    // TotalGuestsPanel.add(totalGuestsLabel);
+    // totalGuestsLabel.setBounds(30, 30, 200, 30);
+    // TotalGuestsPanel.setLayout(null);
 
-    JPanel TotalRevenuePanel = new JPanel();
-    TotalRevenuePanel.setBounds(560, 20, 200, 100);
-    topbar.add(TotalRevenuePanel);
-    TotalRevenuePanel.setBackground(new Color(0, 213, 164));
-    TotalRevenuePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-    TotalRevenuePanel.setLayout(null);
+    // JPanel TotalRevenuePanel = new JPanel();
+    // TotalRevenuePanel.setBounds(560, 20, 200, 100);
+    // topbar.add(TotalRevenuePanel);
+    // TotalRevenuePanel.setBackground(new Color(0, 213, 164));
+    // TotalRevenuePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    // TotalRevenuePanel.setLayout(null);
 
-    JLabel totalRevenueLabel = new JLabel("Total Revenue: $5000");
-    totalRevenueLabel.setFont(new Font("Arial", Font.PLAIN, 18));
-    TotalRevenuePanel.add(totalRevenueLabel);
-    totalRevenueLabel.setBounds(10, 30, 200, 30);
+    // JLabel totalRevenueLabel = new JLabel("Total Revenue: $5000");
+    // totalRevenueLabel.setFont(new Font("Arial", Font.PLAIN, 18));
+    // TotalRevenuePanel.add(totalRevenueLabel);
+    // totalRevenueLabel.setBounds(10, 30, 200, 30);
 
     JLabel welcomeLabel1 = new JLabel("Welcome to Hotel Reservation");
     welcomeLabel1.setFont(new Font("Arial", Font.PLAIN, 24));

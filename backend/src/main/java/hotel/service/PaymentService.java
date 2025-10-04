@@ -4,17 +4,22 @@ import dao.PaymentDAO;
 import java.sql.Connection;
 import java.util.List;
 import model.Payment;
+import model.RoomBooking;
+import service.RoomBookingService;
 
 public class PaymentService{
 	public PaymentDAO paymentDAO;
+	public RoomBookingService roomBookingService;
 
-	public PaymentService(PaymentDAO paymentDAO){
+	public PaymentService(PaymentDAO paymentDAO,RoomBookingService roomBookingService){
+		this.roomBookingService=roomBookingService;
 		this.paymentDAO=paymentDAO;
 	}
 
 	//create new user
-	public Payment createPayment(Long userId,Long bookingId,Double amount,Connection conn){
-	//	Double price = roomBooking.findById(bookingId).getPrice();
+	public Payment createPayment(Long userId,Long bookingId,Connection conn){
+		RoomBooking RoomBooking= roomBookingService.getBooking(bookingId,conn);
+		Double amount = RoomBooking.getTotalPrice();
 	//	starttime
 	//	endtime
 	//	difference

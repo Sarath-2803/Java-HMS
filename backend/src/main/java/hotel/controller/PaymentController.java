@@ -119,7 +119,7 @@ public class PaymentController{
 		}
 
 		try(Connection conn = Utils.getConnection()){
-			Payment payment = paymentService.createPayment(userId,bookingId,amount,conn);
+			Payment payment = paymentService.createPayment(userId,bookingId,conn);
 			ResponseDTO response = new ResponseDTO(201,payment);
 			System.out.println("Payment completed successfully...");
 			ResponseUtils.sendResponse(exchange,response);

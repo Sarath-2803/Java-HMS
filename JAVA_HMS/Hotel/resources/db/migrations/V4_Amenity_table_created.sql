@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS amenities (
+    id SERIAL PRIMARY KEY,
+    capacity INT NOT NULL
+);

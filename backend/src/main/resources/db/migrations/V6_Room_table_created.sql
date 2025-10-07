@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS rooms ( 
-    id BIGSERIAL PRIMARY KEY, 
-    roomNumber VARCHAR(50) NOT NULL UNIQUE, 
-    type VARCHAR(100) NOT NULL, 
-    price DOUBLE PRECISION NOT NULL, 
-    capacity INT NOT NULL );

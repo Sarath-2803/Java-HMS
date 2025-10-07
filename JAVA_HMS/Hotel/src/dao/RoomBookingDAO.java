@@ -107,7 +107,7 @@ public class RoomBookingDAO {
             while (rs.next()) {
                 Room room = new Room();
                 room.setId(rs.getLong("id"));
-                room.setRoomNumber(rs.getString("roomNumber"));
+                room.setRoomNumber(rs.getLong("roomNumber"));
                 room.setType(rs.getString("type"));
                 room.setPrice(rs.getDouble("price"));
                 room.setCapacity(rs.getInt("capacity"));

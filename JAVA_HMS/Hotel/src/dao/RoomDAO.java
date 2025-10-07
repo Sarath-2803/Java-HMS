@@ -10,13 +10,12 @@ import java.util.List;
 public class RoomDAO {
 
     public Room create(Room room, Connection conn) {
-        String sql = "INSERT INTO rooms (roomNumber, type, price, capacity) VALUES (?, ?, ?, ?) RETURNING id";
+        String sql = "INSERT INTO rooms (type, price, capacity) VALUES (?, ?, ?) RETURNING id";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, room.getRoomNumber());
-            ps.setString(2, room.getType());
-            ps.setDouble(3, room.getPrice());
-            ps.setInt(4, room.getCapacity());
+            ps.setString(1, room.getType());
+            ps.setDouble(2, room.getPrice());
+            ps.setInt(3, room.getCapacity());
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -60,7 +59,7 @@ public class RoomDAO {
     public Room update(Room room, Connection conn) {
         String sql = "UPDATE rooms SET roomNumber=?, type=?, price=?, capacity=? WHERE id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, room.getRoomNumber());
+            ps.setLong(1, room.getRoomNumber());
             ps.setString(2, room.getType());
             ps.setDouble(3, room.getPrice());
             ps.setInt(4, room.getCapacity());
@@ -85,7 +84,7 @@ public class RoomDAO {
     private Room mapRow(ResultSet rs) throws SQLException {
         Room room = new Room();
         room.setId(rs.getLong("id"));
-        room.setRoomNumber(rs.getString("roomNumber"));
+        room.setRoomNumber(rs.getLong("roomNumber"));
         room.setType(rs.getString("type"));
         room.setPrice(rs.getDouble("price"));
         room.setCapacity(rs.getInt("capacity"));

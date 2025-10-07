@@ -63,10 +63,45 @@ public class RoomStatus extends JFrame {
             RoomBookingFrame.main(new String[]{});
         });
 
-        JButton newRoombtn = new JButton("Add new Room");
-        newRoombtn.addActionListener(e -> {
-            
-        });
+        // --- Add Room Button (bottom-right) --- 
+        JButton btnAddRoom = new JButton("Add Room"); btnAddRoom.addActionListener(e -> { 
+            // Step 1: Ask for access key 
+            String accessKey = JOptionPane.showInputDialog(this, "Enter Access Key:", "Admin Verification", JOptionPane.PLAIN_MESSAGE); if (accessKey == null || !accessKey.equals("sudo123")) { 
+                // change key as needed 
+                JOptionPane.showMessageDialog(this, "Invalid Access Key!", "Access Denied", JOptionPane.ERROR_MESSAGE); return; }
+
+            // Step 2: Room input fields
+            String[] types = {"Single", "Double", "Suite", "Deluxe"};
+            JComboBox<String> typeBox = new JComboBox<>(types);
+            JPanel panel = new JPanel(new GridLayout(2, 2, 10, 10));
+            panel.add(new JLabel("Room Type:"));
+            panel.add(typeBox);
+
+            int result = JOptionPane.showConfirmDialog(this, panel, "Add Room", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result != JOptionPane.OK_OPTION) return;
+
+            String type = (String) typeBox.getSelectedItem();
+
+            try (Connection conn = Utils.getConnection()) {
+                RoomDAO dao = new RoomDAO();
+                    Room newRoom = new Room(type);
+                    dao.create(newRoom, conn);
+                    JOptionPane.showMessageDialog(this, "Room added successfully!");
+
+                // Step 4: Refresh UI
+                dispose();
+                new RoomStatus().setVisible(true);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            });
+
+            // Add button to SOUTH region (aligned right) 
+            JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); 
+            southPanel.add(btnAddRoom); 
+        add(southPanel, BorderLayout.SOUTH);
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(backButton);

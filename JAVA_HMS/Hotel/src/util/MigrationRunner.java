@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class MigrationRunner{
-	private static final String MIG_DIR="C:\\Users\\LENOVO\\OneDrive\\Desktop\\JAVA_HMS_Final\\Java-HMS\\JAVA_HMS\\Hotel\\resources\\db\\migrations";
-
+	//private static final String MIG_DIR="C:\\Users\\LENOVO\\OneDrive\\Desktop\\JAVA_HMS_Final\\Java-HMS\\JAVA_HMS\\Hotel\\resources\\db\\migrations";
+	private static final String MIG_DIR="/home/varghesejohn/johan/CET/oop_proj/JAVA_HMS/Hotel/resources/db/migrations";
 	public static void main(String args[]){
 		try(Connection conn = Utils.getConnection()){
 			if(conn!=null && !conn.isClosed()){

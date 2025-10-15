@@ -6,7 +6,8 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Utils{
-    private static final String url = "jdbc:postgresql://localhost:5433/test";
+    //private static final String url = "jdbc:postgresql://localhost:5433/test";
+    private static final String url = "jdbc:postgresql://localhost:5432/hms";
     private static final String user = "postgres";
     private static final String password = "postgres";
 

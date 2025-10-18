@@ -1,6 +1,4 @@
--- Drop and recreate (if you can lose existing data)
-DROP TABLE IF EXISTS roombookings;
-
+--Room booking table created
 CREATE TABLE IF NOT EXISTS roombookings (
     id BIGSERIAL PRIMARY KEY,
     userId BIGINT NOT NULL,

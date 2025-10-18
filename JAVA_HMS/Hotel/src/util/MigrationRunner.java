@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class MigrationRunner{
-	private static final String MIG_DIR="/home/sarath/Projects/oop/Java-HMS/JAVA_HMS/Hotel/resources/db/migrations/";
+	private static final String MIG_DIR=System.getenv().get("MIG_DIR");
 
 	public static void main(String args[]){
 		try(Connection conn = Utils.getConnection()){

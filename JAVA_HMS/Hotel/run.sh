@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Set environment variables
+export MIG_DIR="/home/sarath/Projects/oop/Java-HMS/JAVA_HMS/Hotel/resources/db/migrations/";
 export DB_USER=postgres
 export DB_PASSWORD=postgres
 export DB_URL=jdbc:postgresql://localhost:5432/test

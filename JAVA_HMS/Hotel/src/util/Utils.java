@@ -2,8 +2,6 @@ package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Map;
-import java.util.HashMap;
 
 public class Utils{
     private static final String url = System.getenv().get("DB_URL");

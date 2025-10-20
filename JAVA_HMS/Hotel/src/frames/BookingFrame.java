@@ -42,7 +42,7 @@ public class BookingFrame extends JFrame {
             List<RoomBooking> bkngs = bd.findAll(conn);
             for (RoomBooking bkng : bkngs) {
                 Object[] row = new Object[6];
-                row[0] = "XYZH" + String.format("%05d", bkng.getId());
+                row[0] = "XYZHBN" + String.format("%05d", bkng.getId());
                 row[1] = ud.findById(bkng.getUserId(), conn).getUsername();
                 row[2] = rd.findById(bkng.getRoomId(), conn).getRoomNumber();
                 row[3] = convertDateFormat(bkng.getCheckIn().toString());
@@ -160,19 +160,6 @@ public class BookingFrame extends JFrame {
                         if(newbkng != null) {
                             dispose();
                             new PaymentFrame(newbkng.getUserId(), bookingId, newbkng.getTotalPrice() - current).setVisible(true);
-                            // if(bd.findById(bookingId, conn).getStatus()) {
-                            //     JOptionPane infoPane = new JOptionPane(
-                            //     "Booking ID " + bookingId + " has been extended to " + newDate,
-                            //     JOptionPane.INFORMATION_MESSAGE);
-
-                            //     JDialog infoDialog = infoPane.createDialog(parent, "Extended");
-                            //     infoDialog.setSize(450, 200);
-                            //     infoDialog.setLocationRelativeTo(parent);
-                            //     infoDialog.setVisible(true);
-                            // }
-                            // else {
-                            //     centeringDialog("Booking extension failed", "Alert");
-                            // }
                         }
                         else {
                             centeringDialog("Failed to extend booking", "Alert");

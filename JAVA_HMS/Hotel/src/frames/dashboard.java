@@ -51,7 +51,7 @@ public class dashboard {
     btn2.setBackground(new Color(0, 255, 0));
     btn2.setFocusPainted(false);
 
-    JButton btn3 = new JButton("<html>Rooms <br> Status<html>");
+    JButton btn3 = new JButton("<html>Room <br> Details<html>");
     btn3.setBounds(10, 350, 180, 100);
     btn3.setFont(btn3.getFont().deriveFont(15.0f));
     sidebar.add(btn3);

@@ -1,3 +1,6 @@
+--schema creation
+CREATE SCHEMA IF NOT EXISTS public;
+
 --schema migrations
 CREATE TABLE IF NOT EXISTS schema_migrations (
     version VARCHAR(100) PRIMARY KEY,

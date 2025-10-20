@@ -66,7 +66,8 @@ public class RoomStatus extends JFrame {
         // --- Add Room Button (bottom-right) --- 
         JButton btnAddRoom = new JButton("Add Room"); btnAddRoom.addActionListener(e -> { 
             // Step 1: Ask for access key 
-            String accessKey = JOptionPane.showInputDialog(this, "Enter Access Key:", "Admin Verification", JOptionPane.PLAIN_MESSAGE); if (accessKey == null || !accessKey.equals("sudo123")) { 
+            String accessKey = JOptionPane.showInputDialog(this, "Enter Access Key:", "Admin Verification", JOptionPane.PLAIN_MESSAGE); 
+            if (accessKey == null || !accessKey.equals("sudo123")) { 
                 // change key as needed 
                 JOptionPane.showMessageDialog(this, "Invalid Access Key!", "Access Denied", JOptionPane.ERROR_MESSAGE); return; }
 
@@ -98,15 +99,15 @@ public class RoomStatus extends JFrame {
             }
             });
 
-            // Add button to SOUTH region (aligned right) 
-            JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); 
-            southPanel.add(btnAddRoom); 
-        add(southPanel, BorderLayout.SOUTH);
+            
 
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         topPanel.add(backButton);
+
+        // Add button to SOUTH region (aligned right) 
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         bottomPanel.add(newBookingButton);
+        bottomPanel.add(btnAddRoom); 
 
         add(topPanel, BorderLayout.NORTH);
         add(scrollPane, BorderLayout.CENTER);

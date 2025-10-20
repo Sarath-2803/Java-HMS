@@ -12,7 +12,7 @@ public class restaurant_reservation {
     public static void main(String args[]){
   
             JFrame frame = new JFrame("Restaurant Reservation");
-            frame.setSize(600, 600);
+            frame.setSize(700, 700);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setLayout(null);
             frame.setLocationRelativeTo(null);
@@ -156,6 +156,9 @@ public class restaurant_reservation {
                 restaurant_chart.main(new String[]{});
                 
             });
+            JButton addtable = new JButton("Add Table");
+            addtable.setBounds(150, 400, 200, 30);
+            panel.add(addtable);
 
             frame.setVisible(true);
        

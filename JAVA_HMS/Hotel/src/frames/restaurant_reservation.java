@@ -2,10 +2,13 @@ package frames;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
+import java.awt.GridLayout;
 import java.sql.Connection;
 import java.sql.Timestamp;
 import service.AmenityBookingService;
 import model.AmenityBooking;
+import model.Amenity;
+import dao.AmenityDAO;
 import util.Utils;
 
 public class restaurant_reservation {
@@ -158,6 +161,40 @@ public class restaurant_reservation {
             });
             JButton addtable = new JButton("Add Table");
             addtable.setBounds(150, 400, 200, 30);
+            addtable.addActionListener(e -> { 
+            // Step 1: Ask for access key 
+            String accessKey = JOptionPane.showInputDialog(frame, "Enter Access Key:", "Admin Verification", JOptionPane.PLAIN_MESSAGE); 
+            if (accessKey == null || !accessKey.equals("sudo123")) { 
+                // change key as needed 
+                JOptionPane.showMessageDialog(frame, "Invalid Access Key!", "Access Denied", JOptionPane.ERROR_MESSAGE); return; }
+
+            // Step 2: Room input fields
+            String[] types = {"2", "4", "6", "8"};
+            JComboBox<String> typeBox = new JComboBox<>(types);
+            JPanel addtablepanel = new JPanel(new GridLayout(2, 2, 10, 10));
+            addtablepanel.add(new JLabel("Table Capacity:"));
+            addtablepanel.add(typeBox);
+
+            int result = JOptionPane.showConfirmDialog(frame, addtablepanel, "Add Table", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            if (result != JOptionPane.OK_OPTION) return;
+
+            String type = (String) typeBox.getSelectedItem();
+
+            try (Connection conn = Utils.getConnection()) {
+                AmenityDAO dao = new AmenityDAO();
+                    Amenity newTable = new Amenity(Integer.parseInt(type));
+                    dao.save(newTable, conn);
+                    JOptionPane.showMessageDialog(frame, "Table added successfully!");
+
+                // Step 4: Refresh UI
+                frame.dispose();
+                restaurant_reservation.main(new String[]{});
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(frame, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            });
             panel.add(addtable);
 
             frame.setVisible(true);

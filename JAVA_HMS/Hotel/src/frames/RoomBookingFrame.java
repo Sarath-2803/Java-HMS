@@ -52,11 +52,11 @@ private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@
         formPanel.add(roomTypeDropdown);
 
         formPanel.add(new JLabel("Check-In Date:"));
-        checkInField = new JTextField("DD-MM-YYYY");
+        checkInField = new JTextField("DD/MM/YYYY");
         formPanel.add(checkInField);
 
         formPanel.add(new JLabel("Check-Out Date:"));
-        checkOutField = new JTextField("DD-MM-YYYY");
+        checkOutField = new JTextField("DD/MM/YYYY");
         formPanel.add(checkOutField);
 
         add(formPanel, BorderLayout.CENTER);

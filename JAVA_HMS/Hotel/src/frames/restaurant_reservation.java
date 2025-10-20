@@ -186,10 +186,6 @@ public class restaurant_reservation {
                     dao.save(newTable, conn);
                     JOptionPane.showMessageDialog(frame, "Table added successfully!");
 
-                // Step 4: Refresh UI
-                frame.dispose();
-                restaurant_reservation.main(new String[]{});
-
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(frame, "Database error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

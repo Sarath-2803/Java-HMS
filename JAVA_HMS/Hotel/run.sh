@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set environment variables
-export MIG_DIR="/home/sarath/Projects/oop/Java-HMS/JAVA_HMS/Hotel/resources/db/migrations/"; # Set your migrations directory
+export MIG_DIR="/home/varghesejohn/johan/CET/oop_proj/JAVA_HMS/Hotel/resources/db/migrations/"; # Set your migrations directory
 export DB_USER=postgres     # Set your database username
 export DB_PASSWORD=postgres  # Set your database password
-export DB_URL=jdbc:postgresql://localhost:5432/test  # Set your database URL
+export DB_URL=jdbc:postgresql://localhost:5432/hms  # Set your database URL
 
 # Create bin folder if it doesn't exist
 mkdir -p bin

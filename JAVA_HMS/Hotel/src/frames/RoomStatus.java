@@ -15,7 +15,7 @@ public class RoomStatus extends JFrame {
     private JTable roomTable; 
 
     public RoomStatus() {
-        setTitle("Room Status - Today");
+        setTitle("Room Details");
         setSize(1000, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -24,16 +24,18 @@ public class RoomStatus extends JFrame {
         setIconImage(icon.getImage());
 
         // Connect to DB, get room id, room no, type, status from bookings db
-        String[] coloumns = {"Room ID", "Room No", "Type"};
+        String[] coloumns = {"Room ID", "Room No", "Type", "Rate/night", "Capacity"};
         List<Object[]> data = new ArrayList<>();
         try(Connection conn = util.Utils.getConnection()){
             RoomDAO rd = new RoomDAO();
             List<Room> rooms = rd.findAll(conn);
             for (Room room : rooms) {
-                Object[] row = new Object[4];
+                Object[] row = new Object[5];
                 row[0] = room.getId();
-                row[1] = room.getRoomNumber();
+                row[1] = "XYZH" + String.format("%03d", room.getRoomNumber());
                 row[2] = room.getType();
+                row[3] = room.getPrice();
+                row[4] = room.getCapacity();
                 data.add(row);
             }
         }

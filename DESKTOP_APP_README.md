@@ -13,9 +13,9 @@ This is a Java desktop application for hotel management with restaurant reservat
 1. **Java Development Kit (JDK)** - Java 8 or higher
 2. **PostgreSQL 16** - Running on `localhost:5432`
 3. **Database Setup:**
-   - Database name: `test`
-   - Username: `postgres`
-   - Password: `postgres`
+   - Database name: `your-db-name`
+   - Username: `your-db-username`
+   - Password: `your-db-password`
 
 ## Running the Application
 
@@ -129,23 +129,6 @@ The application uses the following tables (auto-created on first run):
 
 ## Notes
 
-### What Changed from Client-Server Version
-This application was refactored from a client-server architecture to a desktop application:
-
-**Removed:**
-- ❌ HTTP Server (port 8080)
-- ❌ Controllers (AmenityController, AmenityBookingController)
-- ❌ HttpClient utility
-- ❌ JSON parsing (JSONObject, JSONArray)
-- ❌ REST API endpoints
-
-**Kept:**
-- ✅ Services (business logic)
-- ✅ DAOs (database access)
-- ✅ Models (data classes)
-- ✅ Utils (database connection)
-- ✅ All frontend frames
-
 ### Migration Files
 SQL migration files are located in `backend/src/main/resources/db/migrations/`:
 - V1_Schema_migration.sql
@@ -154,8 +137,3 @@ SQL migration files are located in `backend/src/main/resources/db/migrations/`:
 - V4_Amenity_table_created.sql (creates 6 restaurant tables)
 - V5_AmenityBooking_table_created.sql
 
-## License
-[Your License Here]
-
-## Contributors
-- Joseph Savio Kav
